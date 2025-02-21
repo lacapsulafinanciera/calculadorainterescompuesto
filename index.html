@@ -59,6 +59,10 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;
         }
+        #truco72 {
+            display: none;
+            margin-top: 20px;
+        }
         @media (min-width: 768px) {
             .input-section, .output-section {
                 width: 48%;
@@ -100,7 +104,7 @@
             </div>
         </div>
         <canvas id="grafico"></canvas>
-        <div class="info-box">
+        <div id="truco72" class="info-box">
             <h3>El truco del 72</h3>
             <p>Hay una regla fácil para saber cuándo tu dinero se duplicará: divide 72 entre el porcentaje de crecimiento anual. Por ejemplo, si tu dinero crece al 8% al año, se duplicará en aproximadamente 9 años (72 ÷ 8 = 9). ¡Es como magia financiera!</p>
         </div>
@@ -127,8 +131,12 @@
             "Tu dinero total: <span class='cifra'>$" + total.toLocaleString() + "</span><br>" +
             "Lo que pusiste en total: <span class='cifra'>$" + totalAportaciones.toLocaleString() + "</span><br>" +
             "Lo que ganaste extra: <span class='cifra'>$" + (total - totalAportaciones).toLocaleString() + "</span><br><br>" +
-            "Con un crecimiento del " + (tasa * 100) + "% al año, tu dinero se duplica cada " + regla72 + " años. ¡El poder del interés compuesto en acción!";
+            "Con un crecimiento del " + (tasa * 100) + "% al año, tu dinero se duplica cada " + regla72 + " años.";
+        
         generarGrafico(datosAnios, datosTotales, datosAportaciones, datosInteres);
+        
+        // Mostrar el truco del 72
+        document.getElementById("truco72").style.display = "block";
     }
     function generarGrafico(labels, totales, aportaciones, intereses) {
         let ctx = document.getElementById("grafico").getContext("2d");
@@ -193,3 +201,4 @@
     </script>
 </body>
 </html>
+
